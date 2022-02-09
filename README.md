@@ -1,2 +1,4 @@
-# rowan-chatbot
-Discord chat bot for Rowan.
+# Rowan Chatbot
+Discord chatbot for Rowan.
+
+## Purpose
