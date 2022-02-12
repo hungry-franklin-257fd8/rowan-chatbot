@@ -1,5 +1,5 @@
 {
-  "main": "bot.js",
+  "main": "bot-start.js",
   "dependencies": {
     "@discordjs/builders": "^0.12.0",
     "@discordjs/rest": "^0.3.0",
