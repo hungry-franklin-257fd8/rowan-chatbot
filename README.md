@@ -10,4 +10,4 @@ Spit out current events and other things from Rowan.
 
 ## Commands
 `/help` <br>
-`/info`
+`/info` <br>
