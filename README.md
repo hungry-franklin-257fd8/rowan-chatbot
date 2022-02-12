@@ -9,5 +9,5 @@ Spit out current events and other things from Rowan.
 `/<command>`
 
 ## Commands
-`/help`
+`/help` <br>
 `/info`
