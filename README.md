@@ -1,4 +1,4 @@
-![Alt text](banner.png?raw=true "Rowan University Banner")
+![Alt text](banner.png?raw=true "Rowan University Banner Image")
 # Rowan Chatbot
 Discord chatbot for Rowan.
 Made by Avery, Vince, Zach, Mura, Tristan, Joe.
