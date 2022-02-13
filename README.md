@@ -7,7 +7,8 @@ Made by Avery, Vince, Zach, Mura, Tristan, Joe.
 Spit out current events and other things from Rowan.
 
 ## Usage
-`/rowan <command>`
+`/<command>`
 
 ## Commands
-`/rowan currentevents`
+`/help` <br>
+`/info` <br>
