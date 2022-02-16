@@ -29,6 +29,14 @@ client.on('interactionCreate', async (interaction) => {
     if (commandName === 'info') {
         await interaction.reply('`Coming soon.`');
     }
+
+    if (commandName === 'server') {
+        await interaction.reply(`Server name: ${interaction.guild.name}\nTotal members: ${interaction.guild.memberCount}`);
+    }
+
+    if (commandName === 'user') {
+        await interaction.reply(`Your tag: ${interaction.user.tag}\nYour id: ${interaction.user.id}`);
+    }
 });
 
 
