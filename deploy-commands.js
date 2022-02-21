@@ -11,7 +11,8 @@ const CLIENT_ID = process.env.CLIENT_ID;
 const GUILD_ID = process.env.GUILD_ID;
 const commands = [
     new SlashCommandBuilder().setName('help').setDescription('Replies with helpful dialogue about the Bot.'),
-    new SlashCommandBuilder().setName('info').setDescription('Replies with information about Rowan')
+    new SlashCommandBuilder().setName('info').setDescription('Replies with information about Rowan.'),
+    new SlashCommandBuilder().setName('campus').setDescription('Replies with helpful link about the Rowan campus.')
 ].map(command => command.toJSON());
 const rest = new REST({ version: '9' }).setToken(TOKEN);
 
