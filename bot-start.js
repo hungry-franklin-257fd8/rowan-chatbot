@@ -2,104 +2,43 @@
  |    IMPORTS & GLOBAL VARIABLES    |
  * =================================+
 */
-const { Client, Intents, MessageEmbed } = require('discord.js');
+const { Client, Intents, MessageEmbed, Collection} = require('discord.js');
+const fs = require("fs");
+const config = require("./config.json");
 require('dotenv').config();
-const TOKEN = process.env.TOKEN;
-const CLIENT_ID = process.env.CLIENT_ID;
-const GUILD_ID = process.env.GUILD_ID;
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const TOKEN = config.TOKEN || process.env.TOKEN;
+const CLIENT_ID = config.CLIENT_ID || process.env.CLIENT_ID;
+const GUILD_ID = config.GUILD_ID || process.env.GUILD_ID;
+const client = new Client({
+    intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]
+});
+client.config = config;
+const files = fs.readdirSync("./events").filter(file => file.endsWith(".js"));
 
 /* =================================+
- |       BOT MAIN APPLICATION       |
+ |          STARTUP SEQUENCE        |
  * =================================+
 */
-client.once('ready', () => {
-    console.log(`Logged in as ${client.user.tag}.`);
-});
 
-// code this when people are online so I can test
-client.on('guildMemberAdd', async (member) => {
-    member.guild.channels.get('channelID')
-        .send(`Welcome, ${member}!`);
-});
-
-client.on('interactionCreate', async (interaction) => {
-    const { commandName } = interaction;
-
-    if (!interaction.isCommand()) return;
-
-    if (commandName === 'help') 
-    {
-        await interaction.reply(await helpCommand());
-    }
-
-    if (commandName === 'university') 
-    {
-        await interaction.reply('`Coming soon.`');
-    }
-
-    if (commandName === 'campus')
-    {
-        await interaction.reply(await campusCommand());
-    }
-
-    if (commandName === 'bot')
-    {
-        await interaction.reply(await botCommand());
-    }
-});
-
-async function helpCommand()
-{
-    const embed = new MessageEmbed()
-    .setColor(generateRandomColour())
-    .setDescription('`/help` — returns list of available Chatbot commands\n`/univeristy` — returns information about Rowan University.\n`/campus` — returns information about Rowan campus & surrounding buildings\n`/bot` — returns information about Rowan Chatbot')
-    .setTimestamp()
-    .setFooter({ text: `Made with ${heart()}` });
-    return { embeds: [embed] };
+// Load events
+for (const file of files) {
+    const eventName = file.split(".")[0]; // takes out .js
+    const event = require(`./events/${file}`);
+    client.on(eventName, event.bind(null, client)); // every event has our client var passed along
 }
 
-async function universityCommand()
-{
-    return '`Coming soon`';
+// Load commands
+client.commands = new Collection();
+const commands = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
+for (const file of commands) {
+    const commandName = file.split(".")[0]; // same deal as events
+    const command = require(`./commands/${file}`);
+
+    console.log(`Loading ${commandName}.`);
+    client.commands.set(commandName, command);
 }
 
-async function campusCommand()
-{
-    const embed = new MessageEmbed()
-        .setColor(generateRandomColour())
-        .setTitle('Rowan University Campus')
-        .setURL('https://www.rowan.edu/about/visiting/main.html')
-        .setAuthor({ name: 'Rowan Campus', iconURL: 'https://i.imgur.com/UwP2r7v.png', url: 'https://www.rowan.edu/about/visiting/main.html' })
-        .setDescription('Find information about the campus & surrounding buildings')
-        .setThumbnail('https://i.imgur.com/UwP2r7v.png')
-        .setFooter({ text: `Made with ${heart()}` })
-        .setTimestamp();
-    return { embeds: [embed] };
-}
-
-
-async function botCommand()
-{
-    const embed = new MessageEmbed()
-    .setColor(generateRandomColour())
-    .setAuthor({ name: 'Rowan Chatbot', iconURL: 'https://i.imgur.com/rotM2an.png' })
-    .setDescription('This bot was made for Software Engineering during the Spring 2022 semester. It is made by Vince, Mura, Avery, Joe, Tristan, & Zach. The GitHub link can be found here: https://github.com/hungry-franklin-257fd8/rowan-chatbot.')
-    .setTimestamp()
-    .setFooter({ text: `Made with ${heart()}` });
-    return { embeds: [embed] };
-}
-
-function generateRandomColour()
-{
-    return `#${(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0')}`;
-}
-
-function heart()
-{
-    let [ heart ] =  Array('\u2665');
-    return heart;
-}
+console.log("Finished loading commands! Ready to listen.");
 
 // Leave this untouched as the last line in the file
-client.login(TOKEN);
+client.login(TOKEN).catch(console.error);
