@@ -61,7 +61,16 @@ async function helpCommand()
 
 async function universityCommand()
 {
-    return '`Coming soon`';
+    const embed = new MessageEmbed()
+        .setColor(generateRandomColour())
+        .setTitle('Rowan University Campus')
+        .setURL('https://www.rowan.edu/academics/colleges_and_schools/')
+        .setAuthor({ name: 'Rowan Campus', iconURL: 'https://i.imgur.com/OHHRbPl.jpg', url: 'https://www.rowan.edu/academics/colleges_and_schools/' })
+        .setDescription('Shows the different colleges and schools that Rowan has')
+        .setThumbnail('https://i.imgur.com/OHHRbPl.jpg')
+        .setFooter({ text: `Made with ${heart()}`})
+        .setTimestamp();
+    return { embeds: [embed] };
 }
 
 async function campusCommand()
