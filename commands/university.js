@@ -8,7 +8,7 @@ exports.run = async (client) => {
         .setAuthor({ name: 'Rowan Campus', iconURL: 'https://i.imgur.com/OHHRbPl.jpg', url: 'https://www.rowan.edu/academics/colleges_and_schools/' })
         .setDescription('Shows the different colleges and schools that Rowan has')
         .setThumbnail('https://i.imgur.com/OHHRbPl.jpg')
-        .setFooter({ text: `Made with ${heart()}`})
+        .setFooter({ text: `Made with '\u2665'`})
         .setTimestamp();
         return { embeds: [embed] };
 }
