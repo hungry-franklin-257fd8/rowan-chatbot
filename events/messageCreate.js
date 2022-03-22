@@ -10,8 +10,7 @@ module.exports = async (client, message) => {
     const command = args.shift().toLowerCase();
 
     const cmd = client.commands.get(command);
-
     if (!cmd) return;
 
-    await message.reply(await cmd.run(client));
+    await message.reply(await cmd.run(client, args));
 }
