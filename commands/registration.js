@@ -1,10 +1,15 @@
 const { MessageEmbed } = require("discord.js");
 
-exports.run = async (client, args) => {
+exports.run = async (client, interaction) => {
     // creates the default case if no arguments are given
     // const year = (args !== null) ? args[0] : '';
-    const year = '';
-    console.log(args);
+    let year = '';
+    if(Array.isArray(interaction)) {
+        year = interaction[0];
+    } else {
+        year = interaction.options.get("year").value;
+    }
+    //console.log(year);
     // basic message creation stuff
     const embed = new MessageEmbed()
         .setColor(generateRandomColour())
@@ -36,6 +41,7 @@ exports.run = async (client, args) => {
 }
 exports.name = "registration";
 exports.description = "tells the date for registration based on year";
+exports.args = "year";
 
 function generateRandomColour() {
     return `#${(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0')}`;
