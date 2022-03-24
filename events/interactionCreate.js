@@ -4,5 +4,5 @@ module.exports = async (client, interaction) => {
 
     const cmd = client.commands.get(interaction.commandName);
 
-    await interaction.reply(await cmd.run(client));
+    await interaction.reply(await cmd.run(client, interaction));
 }
