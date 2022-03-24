@@ -7,7 +7,7 @@ exports.run = async (client, interaction) => {
     if(Array.isArray(interaction)) {
         year = interaction[0];
     } else {
-        year = interaction.options.get("year").value;
+        if(interaction.options.get("year")) year = interaction.options.get("year").value;
     }
     //console.log(year);
     // basic message creation stuff
