@@ -1,6 +1,9 @@
 const { MessageEmbed } = require("discord.js");
 var stringSimilarity = require("string-similarity");
 
+// Command to return information about rowan departments
+// Made by Joseph DiTaranto
+
 const depdata = [
     {
       Name: "Academic Affairs Office",
@@ -1007,7 +1010,7 @@ exports.run = async (client, interaction) => {
     if (departmentname == '') {
         embed.setDescription("Please enter a department name with your command. To see a list of all departments type /departments all");
     }else if (departmentname == 'all') {
-        embed.setDescription("Here is a list of all departments:\nhttps://directory.rowan.edu/phones.php");
+        embed.setDescription("A list of all 200 departments can be found here:\nhttps://directory.rowan.edu/phones.php");
     } else {
         var array = Object.keys(depdata)
         .map(function(key) {
