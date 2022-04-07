@@ -21,7 +21,7 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     const slashCommand = new SlashCommandBuilder().setName(command.name).setDescription(command.description);
-    if(command.args) {
+    if (command.args) {
         slashCommand.addStringOption(option =>
         option.setName(command.args).setDescription("filler").setRequired(false));
     }
