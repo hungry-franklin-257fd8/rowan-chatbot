@@ -11,4 +11,10 @@ Spit out current events and other things from Rowan.
 
 ## Commands
 `/help` <br>
-`/info` <br>
+`/activities` <br>
+`/campus` <br>
+`/crisis` <br>
+`/department` <br>
+`/parking` <br>
+`/registration` <br>
+`/university` <br>

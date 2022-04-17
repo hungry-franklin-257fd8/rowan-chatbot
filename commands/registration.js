@@ -9,7 +9,7 @@ exports.run = async (client, interaction) => {
     } else {
         if(interaction.options.get("year")) year = interaction.options.get("year").value;
     }
-    //console.log(year);
+    year = year.toString().toLowerCase();
     // basic message creation stuff
     const embed = new MessageEmbed()
         .setColor(generateRandomColour())
