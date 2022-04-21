@@ -24,7 +24,6 @@ for (const file of commandFiles) {
     if (command.args) {
         if (command.args.constructor.name == "Array") {
             for (comm in command.args) {
-                console.log(comm);
                 slashCommand.addStringOption(option =>
                     option.setName(command.args[comm].name).setDescription(command.args[comm].description).setRequired(command.args[comm].required));
             }
