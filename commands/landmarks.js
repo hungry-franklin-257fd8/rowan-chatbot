@@ -4,10 +4,9 @@ exports.run = async (client) => {
     const embed = new MessageEmbed()
         .setColor(generateRandomColour())
         .setTitle('Rowan Landmarks')
-        .setURL('https://www.tripadvisor.com/AttractionsNear-g46462-d5789853-Rowan_University-Glassboro_New_Jersey.html')
-        .setAuthor({ name: 'Rowan Landmarks', iconURL: 'https://i.imgur.com/UwP2r7v.png', url: 'https://www.rowan.edu/about/visiting/main.html' })
-        .setDescription('Find things to do around Rowan')
-        .setThumbnail('https://i.imgur.com/UwP2r7v.png')
+        .setURL('https://www.google.com/maps/d/u/1/edit?mid=1qc06q9qIvPpwDCsWP84gu1iJkIU_NDtH&ll=39.712461498923574%2C-75.12410815952384&z=16')
+        .setDescription('Find Landmarks Near/on Rowan University For Help Finding Your Way Around')
+        .setThumbnail('http://elvis.rowan.edu/~ditara24/ActivitiesMap.png')
         .setFooter({ text: `Made with \u2665` })
         .setTimestamp();
     return { embeds: [embed] };
