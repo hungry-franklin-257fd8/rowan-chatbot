@@ -22,8 +22,15 @@ for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     const slashCommand = new SlashCommandBuilder().setName(command.name).setDescription(command.description);
     if (command.args) {
-        slashCommand.addStringOption(option =>
-        option.setName(command.args).setDescription("filler").setRequired(false));
+        if (command.args.constructor.name == "Array") {
+            for (comm in command.args) {
+                slashCommand.addStringOption(option =>
+                    option.setName(command.args[comm].name).setDescription(command.args[comm].description).setRequired(command.args[comm].required));
+            }
+        } else {
+            slashCommand.addStringOption(option =>
+            option.setName(command.args).setDescription("Input").setRequired(false));
+        }
     }
     commands.push(slashCommand);
 }

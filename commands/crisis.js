@@ -5,7 +5,7 @@ exports.run = async (client) => {
         .setColor(generateRandomColour())
         .setTitle('Rowan University Crisis Resources')
         .setURL('https://sites.rowan.edu/wellness/counseling/services/crisis.html')
-        .setAuthor({ name: 'Rowan Campus', iconURL: 'https://i.imgur.com/UwP2r7v.png', url: 'https://www.rowan.edu/about/visiting/main.html' })
+        .setAuthor({ name: 'Rowan Crisis', iconURL: 'https://i.imgur.com/UwP2r7v.png', url: 'https://www.rowan.edu/about/visiting/main.html' })
         .setDescription('Find information about crisis resources from Rowan')
         .setThumbnail('https://i.imgur.com/UwP2r7v.png')
         .setFooter({ text: `Made with \u2665` })
