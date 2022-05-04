@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js");
 // Made by Joseph
 
 
-exports.run = async (client) => {
+exports.run = async () => {
     const embed = new MessageEmbed()
         .setColor(generateRandomColour())
         .setDescription('Weather for Rowan University')
