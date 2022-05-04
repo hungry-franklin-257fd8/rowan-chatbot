@@ -217,7 +217,7 @@ exports.run = async (client, interaction) => {
                 embed.setDescription(`This is some other places that you can go to eat that don't fit easily into one category:
                 Landmark \n Chickie and Petes \n Monarch Diner \n `)
             default:
-                embed.setDescription("There are many places to eat on or around Rowan. Try running this command with the type of food you want like Asian or pizza");
+                embed.setDescription("There are many places to eat at or around Rowan. Try running this command with the type of food you want, such as Asian or pizza");
         }
     }
 
@@ -228,8 +228,8 @@ exports.run = async (client, interaction) => {
 
 exports.name = "dining";
 exports.description = "tells the location of places to eat around rowan";
-exports.args = [{"name":"type", "description":"Type Of Food You are Looking For","required":false},
-                {"name":"location", "description":"Directions to a specific food location","required":false}];
+exports.args = [{"name":"type", "description":"Desired type of food","required":false},
+                {"name":"location", "description":"Directions to the desired restaurant nearby","required":false}];
 
 function generateRandomColour() {
     return `#${(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0')}`;

@@ -27,7 +27,8 @@ exports.run = async (client, interaction) => {
 
     const embed = new MessageEmbed()
         .setColor(generateRandomColour())
-        .setDescription("Rowan Offers Many Course Offerings For You To Choose From!\n\n")
+        .setTitle("Rowan Courses")
+        .setDescription("Rowan offers many courses for you to choose from!\n\n")
         .setTimestamp()
         .setFooter({ text: `Made with \u2665` });
 
@@ -72,16 +73,16 @@ exports.run = async (client, interaction) => {
     }
     otherresults += "```"
     embed.addField("Other Courses Close to Your Search", otherresults);
-    embed.addField("More Information", "For more infomation please contact the office of the registrar:\nhttps://sites.rowan.edu/registrar/");
+    embed.addField("More Information", "For more information, please contact the [registrar office](https://sites.rowan.edu/registrar/).");
     
     return { embeds: [embed] }
 }
 
 exports.name = "course";
-exports.description = "provides infomation about rowan courses for the current year";
-exports.args = [{"name":"name", "description":"Name of the Course You are Looking For","required":true},
-                {"name":"semester", "description":"Semester You want to search","required":true},
-                {"name":"subject", "description":"Subject Abbr To Search","required":false}];
+exports.description = "provides information about Rowan courses for the current year";
+exports.args = [{"name":"name", "description":"Name of the course","required":true},
+                {"name":"semester", "description":"Applicable semester to search in","required":true},
+                {"name":"subject", "description":"Optional subject to search in","required":false}];
 
 function generateRandomColour() {
     return `#${(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0')}`;

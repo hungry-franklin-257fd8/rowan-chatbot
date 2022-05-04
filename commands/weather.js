@@ -27,7 +27,7 @@ exports.run = async () => {
             embed.addField('Wind Speed', `${today.weather.wind.speed} mph`);
             embed.setThumbnail(today.weather.icon.url);
         } catch (error) {
-            embed.addField('Description', "No weather data available");
+            embed.addField('Description', "No weather data available. Please contact Joe for support.");
         }
 
     return { embeds: [embed] };
