@@ -3,14 +3,11 @@ const { MessageEmbed } = require("discord.js");
 exports.run = async (client, interaction) => {
     // creates the default case if no arguments are given
     // const year = (args !== null) ? args[0] : '';
-    //let year = '';
+    let year = '';
     if(Array.isArray(interaction)) {
         year = interaction[0];
     } else {
         if(interaction.options.get("year")) year = interaction.options.get("year").value;
-    }
-    if (year == null){
-        year = '';
     }
     year = year.toString().toLowerCase();
     // basic message creation stuff
@@ -44,7 +41,7 @@ exports.run = async (client, interaction) => {
 }
 exports.name = "registration";
 exports.description = "tells the date for registration based on year";
-exports.args = "year";
+exports.args = [{"name":"year","description":"Name of the year you are looking for.","required":false}];
 
 function generateRandomColour() {
     return `#${(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0')}`;
