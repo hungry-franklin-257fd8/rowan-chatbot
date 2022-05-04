@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 //Command to return information about the campus & surrounding buildings
 //Made by Joseph DiTaranto
 
-exports.run = async (client) => {
+exports.run = async () => {
     const embed = new MessageEmbed()
         .setColor(generateRandomColour())
         .setTitle('Rowan University Campus Activities')

@@ -38,7 +38,10 @@ for (const file of commandFiles) {
 const rest = new REST({ version: '9' }).setToken(TOKEN);
 
 (async () => {
-    await rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), { body: commands })
-        .then(() => console.log('Successfully registered application commands.'))
+    await rest.put(Routes.applicationCommands(CLIENT_ID), {body: commands})
+        .then(() => console.log('Deployed commands globally, may require some time to cache.'))
+        .catch(console.error);
+    await rest.put(Routes.applicationGuildCommands(CLIENT_ID,GUILD_ID), {body: commands})
+        .then(() => console.log(`Updated main server slash commands. Should work immediately.`))
         .catch(console.error);
 })();

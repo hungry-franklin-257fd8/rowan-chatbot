@@ -12,5 +12,10 @@ module.exports = async (client, message) => {
     const cmd = client.commands.get(command);
     if (!cmd) return;
 
-    await message.reply(await cmd.run(client, args));
+    try {
+        await message.reply(await cmd.run(client, args));
+    } catch (e) {
+        console.error("Error processing command.");
+        console.error(e);
+    }
 }

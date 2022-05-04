@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const fs = require("fs");
 
-exports.run = async (client) => {
+exports.run = async () => {
     let descriptionBuilder = "";
     const files = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
     console.log(files);

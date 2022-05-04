@@ -3,13 +3,13 @@ const { MessageEmbed } = require("discord.js");
 exports.run = async (client, interaction) => {
 
     //var garage = args[0] ? args[0]: '';
-    //let garage = '';
+    let garage = '';
     if(Array.isArray(interaction)) {
         garage = interaction[0];
     } else {
         if(interaction.options.get("garage")) garage = interaction.options.get("garage").value;
     }
-    if (garage == null){
+    if (typeof garage === "undefined") {
         garage = '';
     }
     garage = garage.toString().toLowerCase();
@@ -45,6 +45,8 @@ exports.run = async (client, interaction) => {
 
 exports.name = "parking";
 exports.description = "tells the location of the parking garages";
+exports.args = [{"name":"garage","description":"name of a specific garage","required":false}]
+
 function generateRandomColour() {
     return `#${(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0')}`;
 }
