@@ -45,7 +45,7 @@ exports.run = async (client, interaction) => {
 
 exports.name = "parking";
 exports.description = "tells the location of the parking garages";
-exports.args = [{"name":"garage","description":"name of a specific garage","required":false}]
+exports.args = [{"name":"garage","description":"name of a specific garage","required":false}];
 
 function generateRandomColour() {
     return `#${(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0')}`;
