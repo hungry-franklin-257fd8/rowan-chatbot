@@ -1,0 +1,69 @@
+<!--Front End Made by Avery Romano-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rowan ChatBot</title>
+    <link rel="stylesheet"  href="style6.css"> </rel>
+    <link rel="stylesheet"  href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@600&family=Roboto&display=swap" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    
+
+
+</head>
+<body>
+
+<section class="sub-header">
+    <nav>
+        <a href="index.html"><img src="images/finallybruh.png"></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="commands.html">COMMANDS</a></li>
+                <!-- <li><a href="">OTHER</a></li> -->
+            </ul>
+        </div>
+        <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+    </nav>
+    <h1>About the Project</h1>
+</section>
+
+<!--ABOUT US-->
+<section class="about-us">
+
+    <div class="row">
+        <div class="about-col">
+            <h1>SWENG TEAM 1</h1>
+            <p>Software Engineering Team 1 consisted of Avery, Joe, Mura, Tristan, Vince, Zach. For our project we used a <br>discord framework to create a bot that allows a user within a discord server that contains our bot to enter specific commands that will allow a user to ask questions about Rowan. The bot will then respond with one of the preset messgages or depending on the question search for the closest result to what you asked.</p>
+                <a href="index.html" class="hero-btn red-btn">EXPLORE NOW!</a>
+        </div>
+        <div class="about-col">
+            <img src="images/rowan2.jpeg">
+        </div>
+    </div>
+
+</section>
+
+
+<!--FOOTER-->
+<section class="footer">
+    <h4>About Us</h4>
+    <p>This project was made by Avery, Joe, Mura, Tristan, Vince, Zach for our Software Engineering Project
+        in Spring 2022.     
+    </p>
+    <div class="icons">
+        <a href=https://github.com/hungry-franklin-257fd8/rowan-chatbot><i class="fa-brands fa-github"></i></a>
+        <a href="https://discord.com/api/oauth2/authorize?client_id=941042373683712130&permissions=274878024704&scope=bot%20applications.commands">
+            <i class="fa-brands fa-discord"></i></a>
+    </div>
+    <p>Made with <i class="fa-solid fa-heart"></i> by SWENG Team 1</p>
+</section>
+
+<script src = "chatbot.js"></script>
+</body>
+</html>
