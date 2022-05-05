@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 exports.run = async (client, interaction) => {
 
     //var garage = args[0] ? args[0]: '';
-    //let garage = '';
+    let garage = '';
     if(Array.isArray(interaction)) {
         garage = interaction[0];
     } else {
@@ -45,6 +45,8 @@ exports.run = async (client, interaction) => {
 
 exports.name = "parking";
 exports.description = "tells the location of the parking garages";
+exports.args = "garage";
+
 function generateRandomColour() {
     return `#${(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0')}`;
 }
