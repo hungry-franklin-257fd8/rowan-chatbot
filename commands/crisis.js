@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 
-exports.run = async (client) => {
+exports.run = async () => {
     const embed = new MessageEmbed()
         .setColor(generateRandomColour())
         .setTitle('Rowan University Crisis Resources')

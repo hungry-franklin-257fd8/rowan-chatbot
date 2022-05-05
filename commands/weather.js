@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js");
 // Made by Joseph
 
 
-exports.run = async (client) => {
+exports.run = async () => {
     const embed = new MessageEmbed()
         .setColor(generateRandomColour())
         .setDescription('Weather for Rowan University')
@@ -27,7 +27,7 @@ exports.run = async (client) => {
             embed.addField('Wind Speed', `${today.weather.wind.speed} mph`);
             embed.setThumbnail(today.weather.icon.url);
         } catch (error) {
-            embed.addField('Description', "No weather data available");
+            embed.addField('Description', "No weather data available. Please contact Joe for support.");
         }
 
     return { embeds: [embed] };
